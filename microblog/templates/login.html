@@ -1,0 +1,52 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#    <h1>Sign In</h1>#}
+{#    <form action="" method="post">#}
+        {# action tregon se cilen url do hapi browseri kur bejme submit informacionin qe do fusim te kjo forme. Ne kete rast empty string i themi browswrit te beje submit formen ne URL qe eshte aktualisht ne address bar #}
+{#        {{ form.hidden_tag() }} {# protect forms from cross site request forgery #}
+{#        <p>#}
+{#            {{ form.username.label }} <br>#}
+{#            {{ form.username(size=32) }} {# E ben fieldin username qe te pranoje 32 karaktere #}
+{##}
+            {# Kemi nje atribut error qe perfshin te gjitha erroret qe kthehen nga validator qe lidhet me cdo field #}
+{#            {% for error in form.username.errors %}   {# Shtojme mesazhe gabimi poshte cdo fieldi #}
+{#                <span style="color: red;">#}
+{#                {{ error }}#}
+{#            </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.password.label }} <br>#}
+{#            {{ form.password(size=32) }}#}
+{#            {% for error in form.password.errors %}#}
+{#                <span style="color: red;">#}
+{#                    {{ error }}#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.remember_me() }} <br> {# Te checkboxi duhet te vendosim kutine perpara label-it #}
+{#            {{ form.remember_me.label }}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.submit() }} <br>#}
+{#        </p>#}
+{#    </form>#}
+{#    <p>Do not have an account yet? <a href="{{ url_for('blueprint.register') }}">Click to Register!</a> </p>#}
+{#    <p>Forgot your password? <a href="{{ url_for('blueprint.reset_password_request') }}">Click to Reset It!</a> </p>#}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Login</h1>
+    <div class="row">
+        <div class="col-md-4">{{ wtf.quick_form(form) }}</div>
+    </div>
+    <p>Do not have an account yet? <a href="{{ url_for('blueprint.register') }}">Click to Register!</a> </p>
+    <p>Forgot your password? <a href="{{ url_for('blueprint.reset_password_request') }}">Click to Reset It!</a> </p>
+{% endblock %}

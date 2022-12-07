@@ -1,0 +1,81 @@
+2022-11-30 15:02:08,237 ERROR Exception on /index [GET] [in C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py:1450]
+Traceback (most recent call last):
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 1820, in _execute_context
+    cursor, statement, parameters, context
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column post.language does not exist
+LINE 2: ... AS post_timestamp, post.user_id AS post_user_id, post.langu...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\routes.py", line 54, in index
+    posts = current_user.followed_posts().paginate(page, app.config['POST_PER_PAGE'], False)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_sqlalchemy\__init__.py", line 534, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\orm\query.py", line 2768, in all
+    return self._iter().all()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\orm\query.py", line 2906, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\orm\session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 1631, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\sql\elements.py", line 333, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 1508, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 1863, in _execute_context
+    e, statement, parameters, cursor, context
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 2044, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\base.py", line 1820, in _execute_context
+    cursor, statement, parameters, context
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column post.language does not exist
+LINE 2: ... AS post_timestamp, post.user_id AS post_user_id, post.langu...
+                                                             ^
+
+[SQL: SELECT anon_1.post_id AS anon_1_post_id, anon_1.post_body AS anon_1_post_body, anon_1.post_timestamp AS anon_1_post_timestamp, anon_1.post_user_id AS anon_1_post_user_id, anon_1.post_language AS anon_1_post_language 
+FROM (SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.language AS post_language 
+FROM post JOIN followers ON followers.followed_id = post.user_id 
+WHERE followers.follower_id = %(follower_id_1)s UNION SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.language AS post_language 
+FROM post 
+WHERE %(param_1)s = post.user_id) AS anon_1 ORDER BY anon_1.post_timestamp DESC 
+ LIMIT %(param_2)s OFFSET %(param_3)s]
+[parameters: {'follower_id_1': 2, 'param_1': 2, 'param_2': 5, 'param_3': 0}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-11-30 15:03:02,756 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-11-30 15:03:51,503 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-11-30 15:03:57,502 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-11-30 15:04:07,977 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-11-30 15:39:34,228 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-11-30 15:42:01,524 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-01 15:17:17,625 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-01 15:49:13,864 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-01 15:51:22,936 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-01 15:51:31,838 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-01 16:00:12,609 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-02 09:33:02,214 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:02:23,691 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:03:02,105 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:05:46,581 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:12:39,260 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:12:59,689 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:13:34,487 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]

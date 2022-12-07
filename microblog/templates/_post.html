@@ -1,0 +1,40 @@
+{# Po krijojme nje subtemplate qe e kemi emeruar me underscore qe ta vecojme nga full template pages.
+Do vecojme postimet dhe ne vend qe te shkruajme shume rreshta kod mjaftojme te perfshijme kete sub template#}
+
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            {% if post.author.username %}
+                <a href="{{ url_for('blueprint.user', username=post.author.username) }}">
+                    <img src="{{ post.author.avatar(70) }}" alt=""> </a>
+            {% endif %}
+        </td>
+
+        {# Do e bejme emrin e autorit link qe kur ta klikojme do shkojme te ai profil #}
+        <td>
+            {% set user_link %} {# Krijojme nje variabel te perkohshme qe konverton username ne link #}
+            <a href="{{ url_for('blueprint.user', username=post.author.username) }}">
+                {{ post['author']['username'] }}</a>
+            {% endset %}
+            {{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}
+            <br>
+            <span id="post{{ post.id }}">{{ post.body }}</span>
+
+            {# Si fillim do shohim nqs gjuha eshte bosh sepse nese eshte bosh nuk do ofrojme perkthim #}
+            {# Dhe e dyta nqs gjuha e detektuar eshte ndryshe nga g.locale #}
+            {# {% if post.language and post.language != g.locale %} #}
+            <br> <br>
+            <strong>
+                    <span id="translation{{ post.id }}">
+                    <a href="javascript:translate(
+                         '#post{{ post.id }}',
+                         '#translation{{ post.id }}',
+                          '{{ post.language }}',
+                           '{{ g.locale }}');">{{ _('Translate') }}</a>
+                </span>
+            </strong>
+            {#            {% endif %}#}
+        </td>
+        {# post['author']['username']  eshte e njejte me post.author.username  #}
+    </tr>
+</table>

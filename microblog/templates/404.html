@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1> {{ _("Page Not Found! Error 404") }}</h1>
+    <p><a href="{{ url_for('blueprint.index') }}">{{_("Back to homepage")}}</a></p>
+{% endblock %}

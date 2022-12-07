@@ -1,0 +1,118 @@
+2022-12-05 11:13:36,968 ERROR Exception on / [GET] [in C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py:1450]
+Traceback (most recent call last):
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\routes.py", line 65, in index
+    posts=posts.items, next_url=next_url, prev_url=prev_url)  # one page at a time
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\templating.py", line 157, in render_template
+    ctx.app,
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\index.html", line 45, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\base.html", line 39, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\base.html", line 84, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\index.html", line 54, in block 'app_content'
+    {% include '_post.html' %}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\_post.html", line 33, in template
+    {% endif %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'.
+2022-12-05 11:13:54,809 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-05 11:15:53,774 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-06 14:16:03,464 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:64]
+2022-12-06 15:18:29,044 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 12:09:09,902 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 12:12:06,877 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 12:32:26,175 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 12:35:34,193 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:08:17,111 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:08:42,051 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:36:27,794 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:43:40,504 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:43:43,761 ERROR Exception on / [GET] [in C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py:1450]
+Traceback (most recent call last):
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\routes.py", line 67, in index
+    posts=posts.items, next_url=next_url, prev_url=prev_url)  # one page at a time
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\templating.py", line 157, in render_template
+    ctx.app,
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\index.html", line 45, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\base.html", line 39, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block 'body'
+    {% block navbar %}
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\templates\base.html", line 63, in block 'navbar'
+    <form class="navbar-form navbar-left" method="get" action="{{ url_for('main.search') }}">
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\helpers.py", line 336, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\helpers.py", line 324, in url_for
+    endpoint, values, method=method, force_external=external
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\werkzeug\routing\map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.search'. Did you mean 'blueprint.user' instead?
+2022-12-07 13:44:52,488 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:45:23,022 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:50:07,942 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:50:14,270 ERROR Exception on /search [GET] [in C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py:1450]
+Traceback (most recent call last):
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\Elektriku\anaconda3\envs\micro\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Elektriku\PycharmProjects\micro\microblog\routes.py", line 290, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+AttributeError: type object 'Post' has no attribute 'search'
+2022-12-07 13:51:58,625 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]
+2022-12-07 13:58:55,337 INFO Microblog startup [in C:\Users\Elektriku\PycharmProjects\micro\microblog\__init__.py:68]

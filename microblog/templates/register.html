@@ -1,0 +1,68 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    {% for msg in get_flashed_messages() %}#}
+{#        <div class="alert alert-success alert-dismissible fade show" role="alert">#}
+{#            {{ msg }}#}
+{#            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#    <h1>Register</h1>#}
+{#    <form action="" method="post">#}
+{# action tregon se cilen url do hapi browseri kur bejme submit informacionin qe do fusim te kjo forme.
+{#        Ne kete rast empty string i themi browswrit te beje submit formen ne URL qe eshte aktualisht ne address bar #}
+{#        {{ form.hidden_tag() }} {# protect forms from cross site request forgery #}
+{#        <p>#}
+{#            {{ form.username.label }} <br>#}
+{#            {{ form.username(size=32) }} {# E ben fieldin username qe te pranoje 32 karaktere #}
+{#            {% for error in form.password.errors %}#}
+{#                <span style="color: red;">#}
+{#                    {{ error }}#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.email.label }} <br>#}
+{#            {{ form.email(size=32) }}#}
+{#            {% for error in form.password.errors %}#}
+{#                <span style="color: red;">#}
+{#                    {{ error }}#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.password.label }}<br>#}
+{#            {{ form.password() }}#}
+{#            {% for error in form.password.errors %}#}
+{#                <span style="color: red;">#}
+{#                    {{ error }}#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.repeat_password.label }}<br>#}
+{#            {{ form.repeat_password() }}#}
+{#            {% for error in form.password.errors %}#}
+{#                <span style="color: red;">#}
+{#                    {{ error }}#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.submit() }} <br>#}
+{#        </p>#}
+{#    </form>#}
+{#    <p>You already have an account? <a href="{{ url_for('blueprint.login') }}">Login</a></p>#}
+{##}
+{#{% endblock %}#}
+
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Register</h1>
+    <div class="row">
+        <div class="col-md-4">{{ wtf.quick_form(form) }}</div>
+    </div>
+    <p>You already have an account? <a href="{{ url_for('blueprint.login') }}">Login</a></p>
+{% endblock %}

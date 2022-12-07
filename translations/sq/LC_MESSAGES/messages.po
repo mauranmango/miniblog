@@ -1,0 +1,53 @@
+# Albanian translations for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-11-28 18:10+0100\n"
+"PO-Revision-Date: 2022-11-28 18:27+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: sq\n"
+"Language-Team: sq <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: microblog/forms.py:13
+msgid "Username"
+msgstr "Emri i përdoruesit"
+
+#: microblog/forms.py:14
+msgid "Password"
+msgstr "Fjalëkalimi"
+
+#: microblog/forms.py:15
+msgid "Remember Me"
+msgstr "Më kujto"
+
+#: microblog/forms.py:16
+msgid "Sign In"
+msgstr "Hyni"
+
+#: microblog/routes.py:94
+msgid "Invalid Username or Password"
+msgstr "Emër përdoruesi ose fjalëkalimi i pavlefshëm"
+
+#: microblog/templates/404.html:4
+msgid "Page Not Found! Error 404"
+msgstr "Faqja nuk u gjet! Gabim 404"
+
+#: microblog/templates/404.html:5
+msgid "Back to homepage"
+msgstr "Kthehu në faqen kryesore"
+
+#: microblog/templates/_post.html:17
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr "%(username)s tha %(when)s"
+
