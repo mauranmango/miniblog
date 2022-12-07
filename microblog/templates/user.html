@@ -9,17 +9,17 @@
 {#    <table>#}
 {#        <tr valign="top">#}
 {#            <td><img src="{{ user.avatar(128) }}" alt=""></td>#}
-{#             Ne kete menyre do shtojme avatar ne krye te profilit #}
+
 {#            <td>#}
 {#                <h1>User: {{ user.username }}</h1>#}
-{#                {% if user.about_me %} <p>{{ user.about_me }}</p> {% endif %}  {# Nqs ka About Me shfaqe #}
+{#                {% if user.about_me %} <p>{{ user.about_me }}</p> {% endif %}
 {#                {% if user.last_seen %}<p> Last seen on: {{ user.last_seen }}</p> {% endif %}#}
 {#                 Do shfaqim numrin e followersave  #}
 {#                <p>{{ user.followers.count() }} followers | {{ user.followed.count() }} following</p>#}
-{#                 Do e shfaqim linkun Edit Profile vetem nqs useri qe po e shikon eshte ai qe eshte loguar #}
+
 {#                {% if user.username == current_user.username %}#}
 {#                    <a href="{{ url_for('blueprint.edit_profile') }}">Edit Profile</a>#}
-{#                {% elif not current_user.is_following(user) %}        {# Do kontrollojme nqs e ndjek kete perdorues #}
+{#                {% elif not current_user.is_following(user) %}
 {#                    <p><a href="{{ url_for('blueprint.follow', username=user.username) }}">Follow</a></p>#}
 {#                {% else %}#}
 {#                    <p><a href="{{ url_for('blueprint.unfollow', username=user.username) }}">Unfollow</a></p>#}
@@ -43,23 +43,23 @@
 
 
 {% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}    {# Kur kemi forma importojme kte file qe ta renderoje dhe stiloje #}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block app_content %}   {# Ne kete bllok faqet qe derivohen nga base template do shtojne kontentin e tyre #}
+{% block app_content %}
     <table>
         <tr valign="top">
             <td><img src="{{ user.avatar(128) }}" alt=""></td>
-            {# Ne kete menyre do shtojme avatar ne krye te profilit #}
+
             <td>
                 <h1>User: {{ user.username }}</h1>
-                {% if user.about_me %} <p>{{ user.about_me }}</p> {% endif %}  {# Nqs ka About Me shfaqe #}
+                {% if user.about_me %} <p>{{ user.about_me }}</p> {% endif %}
                 {% if user.last_seen %}<p> Last seen on: {{ moment(user.last_seen).format('LLL') }}</p> {% endif %}
-                {# Do shfaqim numrin e followersave#}
+
                 <p>{{ user.followers.count() }} followers | {{ user.followed.count() }} following</p>
-                {# Do e shfaqim linkun Edit Profile vetem nqs useri qe po e shikon eshte ai qe eshte loguar #}
+
                 {% if user.username == current_user.username %}
                     <a href="{{ url_for('blueprint.edit_profile') }}">Edit Profile</a>
-                {% elif not current_user.is_following(user) %}        {# Do kontrollojme nqs e ndjek kete perdorues #}
+                {% elif not current_user.is_following(user) %}
                     <p><a href="{{ url_for('blueprint.follow', username=user.username) }}">Follow</a></p>
                 {% else %}
                     <p><a href="{{ url_for('blueprint.unfollow', username=user.username) }}">Unfollow</a></p>

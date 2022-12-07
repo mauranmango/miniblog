@@ -18,14 +18,12 @@
 
 # import jwt
 #
-# # Dictionaryn e enkripton me algoritmin 256 dhe me key qe kemi percaktuar qe duhet te jete shume sekret
-# # Nje feature tjeter qe kane token eshte qe kane date skadence
+
 # # token = jwt.encode({'a': 'b'}, "my-secret", algorithm='HS256')
 # # print(token)
 # #
 # #
-# # Ne kete menyre dekodojme informacionin qe koduam. Mund te kemi shume algoritme qe suportojme prandaj e percaktojme si liste
-# # print(jwt.decode(token, 'my-secret', algorithms=['HS256']))
+ # print(jwt.decode(token, 'my-secret', algorithms=['HS256']))
 #
 #
 # import requests, uuid, json

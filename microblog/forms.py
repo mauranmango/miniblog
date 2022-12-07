@@ -7,11 +7,9 @@ from flask_babel import _, lazy_gettext as _l
 from flask import request
 
 
-# Mund te percaktojme funksione validimi per cdo fushe te cilat jane shume te rendesishme
-# Cdo forme perfaqesohet nga nje klase
 class LoginForm(FlaskForm):
-    # Fushat e formes luajne rolin e variablave te klases. Eshte liste sepse mund te percaktohen me shume se 1 validator
-    username = StringField(_l('Username'), validators=[DataRequired()])    # Wrap dhe labels with lazy_gettext function
+   
+    username = StringField(_l('Username'), validators=[DataRequired()])   
     password = PasswordField(_l('Password'), validators=[DataRequired()])
     remember_me = BooleanField(_l('Remember Me'))
     submit = SubmitField(_('Sign In'))
@@ -25,7 +23,7 @@ class RegistrationForm(FlaskForm):
     repeat_password = PasswordField('Repeat Password', validators=[DataRequired()])
     submit = SubmitField('Register')
 
-    def validate_username(self, username):  # nuk duam duplikata per username dhe email prandaj ndertojme funksionet
+    def validate_username(self, username): 
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError("Username already exists!")
@@ -41,17 +39,17 @@ class EditProfileForm(FlaskForm):
     about_me = TextAreaField('About Me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Update')
 
-    # Do krijojme konstruktorin e klases qe do marri si argument username
+   
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
         self.original_username = original_username
 
-    # Pra duhet te validojme per username unike nqs ai username po ndryshohet
+   
     def validate_username(self, username):
-        # Do shohim nqs useri ndryshoi username te forma
-        if username.data != self.original_username:    # Pra nqs username qe do fusim eshte ndryshe nga origjinali
-            user = User.query.filter_by(username=username.data).first()  # Do validojme nqs username eshte origjinal
-            if user is not None:                                    # Dhe nqs ekziston ne DB do ngrejme nje error
+       
+        if username.data != self.original_username:   
+            user = User.query.filter_by(username=username.data).first() 
+            if user is not None:                                   
                 raise ValidationError("Username already exists!")
 
 

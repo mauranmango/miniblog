@@ -1,7 +1,4 @@
 # Kemi akumuluar shume "logjike" te modeli User. Mund te ndodhi qe te kemi ndonje error nderkohe zhvillojme me teper.
-# Do krijojme nje unit test per te testuar disa metoda qe do shtojme ne modelin User
-# Jane teste si ne python shell por keto teste jane te shkarujtur njehere dhe mund te perdoren sa here te duam
-# Sa here shtojme nje feature e testojme me kete modul dhe shohim nqs ka ndikuar te metodat e tjera.
 
 import unittest
 from datetime import datetime, timedelta
@@ -12,13 +9,13 @@ from microblog.models import User, Post
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):
-        # Nuk duam qe testi te behet ne te njejten databaze qe ruajme te dhenat
+       
         app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite://"
-        db.create_all()  # Per unittest duhet gjithmone te krijojme nje databaze te re
+        db.create_all() 
 
     def tearDown(self):
-        db.session.remove()      # Kjo metode fshin sesionin e databazes
-        db.drop_all()            # Si dhe fshin gjithe tabelat
+        db.session.remove()     
+        db.drop_all()           
 
     def test_password_hashing(self):
         u = User(username='susan')
@@ -56,14 +53,14 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(u2.followers.count(), 0)
 
     def test_follow_posts(self):
-        # create four users
+       
         u1 = User(username='john', email='john@example.com')
         u2 = User(username='susan', email='susan@example.com')
         u3 = User(username='mary', email='mary@example.com')
         u4 = User(username='david', email='david@example.com')
         db.session.add_all([u1, u2, u3, u4])
 
-        # create four posts
+       
         now = datetime.utcnow()
         p1 = Post(body="post from john", author=u1,
                   timestamp=now + timedelta(seconds=1))
@@ -76,14 +73,14 @@ class UserModelCase(unittest.TestCase):
         db.session.add_all([p1, p2, p3, p4])
         db.session.commit()
 
-        # setup the followers
-        u1.follow(u2)  # john follows susan
-        u1.follow(u4)  # john follows david
-        u2.follow(u3)  # susan follows mary
-        u3.follow(u4)  # mary follows david
+       
+        u1.follow(u2) 
+        u1.follow(u4) 
+        u2.follow(u3) 
+        u3.follow(u4) 
         db.session.commit()
 
-        # check the followed posts of each user
+       
         f1 = u1.followed_posts().all()
         f2 = u2.followed_posts().all()
         f3 = u3.followed_posts().all()

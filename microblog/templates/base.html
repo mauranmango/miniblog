@@ -92,8 +92,8 @@
     </div>
 {% endblock %}
 
-{% block scripts %}         {# Eshte nje bllok qe sigurohet nga bootstrap ne te cilin shtojme skripte javascript #}
-    {{ super() }}        {# Thirrja e super() do perfshije te gjithe komponentet qe percaktohen ne te njejtin bllok ne template-n "prind" #}
+{% block scripts %}
+    {{ super() }}
     {{ moment.include_moment() }}
     {{ moment.lang(g.locale) }}
     <script>
